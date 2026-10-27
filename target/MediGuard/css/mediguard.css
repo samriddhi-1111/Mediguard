@@ -1,0 +1,876 @@
+
+/* =====================================================
+   MEDIGUARD — SHARED UI THEME
+   Compatible with existing JSP pages and form controls
+   ===================================================== */
+
+:root {
+    --mg-primary: #173b63;
+    --mg-primary-dark: #102b49;
+    --mg-accent: #0d9488;
+    --mg-accent-light: #ccfbf1;
+    --mg-bg: #f4f7fb;
+    --mg-surface: #ffffff;
+    --mg-text: #1e293b;
+    --mg-muted: #64748b;
+    --mg-border: #e2e8f0;
+    --mg-danger: #dc2626;
+    --mg-warning: #d97706;
+    --mg-success: #15803d;
+    --mg-radius: 12px;
+    --mg-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--mg-bg);
+    color: var(--mg-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Headings */
+
+h1, h2, h3, h4 {
+    color: var(--mg-primary-dark);
+    line-height: 1.3;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 750;
+}
+
+h2 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 650;
+}
+
+p {
+    color: var(--mg-muted);
+}
+
+/* Links */
+
+a {
+    color: var(--mg-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--mg-primary);
+}
+
+/* Main page containers */
+
+.container,
+.main-content,
+.content,
+.page-content,
+.dashboard-container {
+    width: min(100% - 40px, 1440px);
+    margin: 28px auto;
+}
+
+main {
+    min-width: 0;
+}
+
+/* Navigation and headers */
+
+header,
+.navbar,
+.topbar,
+.main-header {
+    background: var(--mg-surface);
+    border-bottom: 1px solid var(--mg-border);
+    padding: 16px 24px;
+}
+
+.navbar,
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.logo,
+.brand {
+    color: var(--mg-primary);
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a,
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: var(--mg-muted);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+.nav-link:hover,
+nav a.active,
+.nav-link.active {
+    background: #e8f4f7;
+    color: var(--mg-primary);
+}
+
+/* Cards and panels */
+
+.card,
+.stat-card,
+.panel,
+.form-card,
+.table-card,
+.dashboard-card {
+    min-width: 0;
+    background: var(--mg-surface);
+    border: 1px solid var(--mg-border);
+    border-radius: var(--mg-radius);
+    padding: 22px;
+    box-shadow: var(--mg-shadow);
+}
+
+.card h2,
+.panel h2,
+.form-card h2 {
+    margin-bottom: 18px;
+}
+
+.card + .card,
+.panel + .panel {
+    margin-top: 18px;
+}
+
+/* Dashboard statistics */
+
+.stats-grid,
+.stat-grid,
+.dashboard-stats,
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 22px 0;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid var(--mg-accent);
+}
+
+.stat-card .label,
+.stat-label {
+    display: block;
+    color: var(--mg-muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-card .value,
+.stat-value {
+    display: block;
+    color: var(--mg-primary);
+    font-size: clamp(23px, 2.5vw, 32px);
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+/* Forms */
+
+form {
+    min-width: 0;
+}
+
+.form-group,
+.form-field,
+.input-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 650;
+    margin-bottom: 7px;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+select,
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--mg-text);
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--mg-accent);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--mg-accent);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+small,
+.help-text,
+.form-text {
+    color: var(--mg-muted);
+    font-size: 12px;
+}
+
+/* Buttons */
+
+button,
+.btn,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: var(--mg-primary);
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: var(--mg-primary-dark);
+    color: #fff;
+}
+
+button:active,
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary,
+button.primary {
+    background: var(--mg-primary);
+}
+
+.btn-success,
+button.success {
+    background: var(--mg-success);
+}
+
+.btn-success:hover,
+button.success:hover {
+    background: #166534;
+}
+
+.btn-danger,
+button.danger {
+    background: var(--mg-danger);
+}
+
+.btn-danger:hover,
+button.danger:hover {
+    background: #b91c1c;
+}
+
+.btn-secondary,
+button.secondary {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.btn-secondary:hover,
+button.secondary:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+}
+
+button:disabled,
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* Tables */
+
+.table-container,
+.table-responsive,
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--mg-border);
+    border-radius: 10px;
+    background: var(--mg-surface);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: var(--mg-surface);
+    font-size: 13px;
+}
+
+thead th {
+    background: #edf3f8;
+    color: var(--mg-primary-dark);
+    font-weight: 750;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--mg-border);
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+td {
+    overflow-wrap: anywhere;
+}
+
+td a {
+    font-weight: 650;
+}
+
+/* Alerts and status labels */
+
+.alert,
+.message,
+.notification {
+    padding: 13px 16px;
+    margin: 16px 0;
+    border: 1px solid var(--mg-border);
+    border-radius: 9px;
+    background: #fff;
+}
+
+.alert-success,
+.message-success,
+.success-message {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.alert-danger,
+.alert-error,
+.message-error,
+.error-message {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.alert-warning,
+.warning-message {
+    background: #fffbeb;
+    border-color: #fde68a;
+    color: #92400e;
+}
+
+.alert-info,
+.info-message {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+
+.badge,
+.status-badge,
+.status {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.badge-success,
+.status-active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-warning,
+.status-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-danger,
+.status-expired,
+.status-inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Search controls */
+
+.search-form,
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form input,
+.search-bar input {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+/* Login page */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top right, #ccfbf1 0, transparent 35%),
+        linear-gradient(135deg, #eef4fa, #f8fafc);
+}
+
+.login-card {
+    width: min(100%, 430px);
+    padding: 34px;
+    background: #fff;
+    border: 1px solid var(--mg-border);
+    border-radius: 18px;
+    box-shadow: 0 20px 55px rgba(15, 23, 42, 0.10);
+}
+
+.login-card h1 {
+    margin-bottom: 8px;
+}
+
+.login-card form {
+    margin-top: 25px;
+}
+
+.login-card button,
+.login-card input[type="submit"] {
+    width: 100%;
+}
+
+/* Utility classes */
+
+.text-muted {
+    color: var(--mg-muted);
+}
+
+.text-success {
+    color: var(--mg-success);
+}
+
+.text-danger {
+    color: var(--mg-danger);
+}
+
+.text-warning {
+    color: var(--mg-warning);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-2 {
+    gap: 8px;
+}
+
+.gap-3 {
+    gap: 12px;
+}
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+.mb-3 {
+    margin-bottom: 12px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1000px) {
+    .stats-grid,
+    .stat-grid,
+    .dashboard-stats,
+    .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .container,
+    .main-content,
+    .content,
+    .page-content,
+    .dashboard-container {
+        width: min(100% - 28px, 1440px);
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid,
+    .stat-grid,
+    .dashboard-stats,
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .stat-card,
+    .panel,
+    .form-card,
+    .table-card,
+    .dashboard-card {
+        padding: 16px;
+    }
+
+    header,
+    .navbar,
+    .topbar,
+    .main-header {
+        padding: 14px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav a,
+    .nav-link {
+        padding: 8px 10px;
+    }
+
+    .login-card {
+        padding: 24px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    .search-form,
+    .search-bar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .search-form button,
+    .search-bar button {
+        width: 100%;
+    }
+}
+/* MediGuard header color fix for all JSP pages */
+header,
+.mg-page-header {
+    background-color: #173b63 !important;
+}
+
+header h1,
+.mg-page-header h1 {
+    color: #ffffff !important;
+}
+
+/* ===== RESPONSIVE FIX FOR ALL MEDIGUARD PAGES ===== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Keep page content within the screen */
+main,
+.container,
+.content,
+.panel,
+.report,
+.card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Tables can scroll instead of crushing their columns */
+.table-wrap,
+.table-wrapper,
+.table-responsive,
+.table-container {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap table,
+.table-wrapper table,
+.table-responsive table,
+.table-container table {
+    min-width: 700px;
+    width: 100%;
+}
+
+th,
+td {
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+/* Form controls should fit their available space */
+input,
+select,
+textarea {
+    max-width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    main,
+    .container,
+    .content {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .heading,
+    .actions,
+    header,
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .form-grid,
+    .filters,
+    .summary,
+    .cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card,
+    .panel,
+    .report {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    main,
+    .container,
+    .content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .card,
+    .panel,
+    .report {
+        padding: 12px;
+    }
+
+    button,
+    .button,
+    .btn {
+        max-width: 100%;
+    }
+}
+
+
+/* ===== CONSISTENT MEDIGUARD PAGE HEADER ===== */
+
+.mg-standard-header {
+    width: 100%;
+    min-height: 123px;
+    padding: 22px 2.7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #193e65;
+    color: #ffffff;
+    border-top: 3px solid #0d9488;
+}
+
+.mg-standard-header .mg-brand h1 {
+    margin: 0;
+    color: #ffffff !important;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.mg-standard-header .mg-brand p {
+    margin: 7px 0 0;
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.mg-standard-header .mg-dashboard-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 20px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #193e65 !important;
+    font-size: 16px;
+    font-weight: 650;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s ease;
+}
+
+.mg-standard-header .mg-dashboard-button:hover {
+    background: #eaf0f7;
+}
+
+@media (max-width: 520px) {
+    .mg-standard-header {
+        min-height: auto;
+        padding: 20px 16px;
+        gap: 14px;
+    }
+
+    .mg-standard-header .mg-brand h1 {
+        font-size: 24px;
+    }
+
+    .mg-standard-header .mg-brand p {
+        font-size: 13px;
+    }
+
+    .mg-standard-header .mg-dashboard-button {
+        min-height: 42px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+}
