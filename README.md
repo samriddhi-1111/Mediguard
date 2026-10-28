@@ -1,4 +1,4 @@
-# MediGuard — Medicine Inventory Management System
+#MediGuard - Unified Pharmaceutical Inventory Control System
 
 **A database-driven medicine inventory management system built using Oracle Database, SQL, and PL/SQL.**
 
